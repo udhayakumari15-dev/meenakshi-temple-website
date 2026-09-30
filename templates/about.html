@@ -1,0 +1,919 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | Meenakshi Amman Temple</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans:wght@300;400;500;600&family=Noto+Serif+Tamil:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           COLOUR SYSTEM
+        ===================================================== */
+
+        :root {
+            --night: #081522;
+            --midnight: #050B12;
+            --deep-teal: #063F43;
+
+            --ivory: #F5EBDD;
+            --stone: #B7A993;
+            --charcoal: #29231E;
+
+            --saffron: #C65A20;
+            --vermillion: #A92F24;
+
+            --gold: #C89B3C;
+            --light-gold: #E4C46A;
+        }
+
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+
+            background: var(--ivory);
+            color: var(--charcoal);
+
+            font-family: "Noto Sans", sans-serif;
+
+            line-height: 1.8;
+
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Cormorant Garamond", serif;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .heritage-nav {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            padding: 24px 0;
+
+            background: linear-gradient(
+                to bottom,
+                rgba(5, 11, 18, 0.80),
+                transparent
+            );
+
+            border-bottom: 1px solid rgba(228, 196, 106, 0.18);
+        }
+
+        .nav-brand {
+            color: var(--ivory);
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 1.45rem;
+            font-weight: 600;
+
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .nav-brand:hover {
+            color: var(--light-gold);
+        }
+
+        .nav-label {
+            position: relative;
+
+            color: rgba(245, 235, 221, 0.85);
+
+            font-size: 0.72rem;
+            font-weight: 500;
+
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+
+            margin-left: 25px;
+
+            padding-bottom: 7px;
+        }
+
+        .nav-label:hover {
+            color: var(--light-gold);
+        }
+
+        .nav-label::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--light-gold);
+
+            transition: width 0.4s ease;
+        }
+
+        .nav-label:hover::after {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           PAGE HERO
+        ===================================================== */
+
+        .about-hero {
+            min-height: 72vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(5, 11, 18, 0.92),
+                    rgba(5, 11, 18, 0.62),
+                    rgba(5, 11, 18, 0.28)
+                ),
+                url("{% static 'images/meenalogo.jpg' %}");
+
+            background-size: cover;
+            background-position: center;
+
+            background-attachment: fixed;
+        }
+
+        .about-hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 130px;
+
+            background:
+                linear-gradient(
+                    to top,
+                    var(--ivory),
+                    transparent
+                );
+        }
+
+        .hero-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 800px;
+
+            padding-top: 80px;
+
+            animation: reveal 1s ease forwards;
+        }
+
+        .eyebrow {
+            color: var(--light-gold);
+
+            font-size: 0.7rem;
+            font-weight: 600;
+
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+        .hero-title {
+            color: var(--ivory);
+
+            font-size: clamp(4rem, 8vw, 7rem);
+
+            font-weight: 500;
+
+            line-height: 0.85;
+
+            margin-bottom: 28px;
+        }
+
+        .hero-title span {
+            display: block;
+
+            color: var(--light-gold);
+        }
+
+        .hero-text {
+            max-width: 600px;
+
+            color: rgba(245, 235, 221, 0.82);
+
+            font-size: 1.05rem;
+
+            line-height: 1.9;
+        }
+
+
+        /* =====================================================
+           INTRODUCTION
+        ===================================================== */
+
+        .heritage-section {
+            position: relative;
+
+            padding: clamp(90px, 10vw, 150px) 0;
+
+            overflow: hidden;
+        }
+
+        .section-eyebrow {
+            color: var(--gold);
+
+            font-size: 0.7rem;
+            font-weight: 600;
+
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+
+            font-weight: 500;
+
+            line-height: 0.95;
+
+            margin-bottom: 28px;
+        }
+
+        .section-text {
+            max-width: 650px;
+
+            color: #5A5147;
+
+            font-size: 1rem;
+
+            line-height: 1.9;
+        }
+
+        .gold-line {
+            width: 75px;
+            height: 1px;
+
+            background: var(--gold);
+
+            margin: 30px 0;
+        }
+
+
+        /* =====================================================
+           IMAGE
+        ===================================================== */
+
+        .heritage-image {
+            position: relative;
+
+            padding: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #7B5A27,
+                    #E4C46A,
+                    #8C682F,
+                    #C89B3C,
+                    #6D4D20
+                );
+
+            box-shadow:
+                0 30px 80px rgba(91, 50, 12, 0.30);
+
+            transition:
+                transform 0.8s ease,
+                box-shadow 0.8s ease;
+        }
+
+        .heritage-image img {
+            display: block;
+
+            width: 100%;
+            height: 520px;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.8s ease;
+        }
+
+        .heritage-image:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 40px 90px rgba(91, 50, 12, 0.40);
+        }
+
+        .heritage-image:hover img {
+            transform: scale(1.025);
+        }
+
+
+        /* =====================================================
+           THREE PILLARS
+        ===================================================== */
+
+        .pillars {
+            background: var(--midnight);
+
+            color: var(--ivory);
+        }
+        .card-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 28px;
+}
+
+        .pillar-intro {
+            max-width: 650px;
+
+            margin: 0 auto 70px;
+
+            text-align: center;
+        }
+
+        .pillar-intro .section-title {
+            color: var(--ivory);
+        }
+
+        .pillar-intro p {
+            color: rgba(245, 235, 221, 0.68);
+        }
+
+        .pillar {
+            position: relative;
+
+            height: 100%;
+
+            padding: 45px 35px;
+
+            border-top: 1px solid rgba(200, 155, 60, 0.45);
+            border-bottom: 1px solid rgba(200, 155, 60, 0.12);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.04),
+                    rgba(255,255,255,0.01)
+                );
+
+            transition:
+                transform 0.6s ease,
+                border-color 0.6s ease,
+                box-shadow 0.6s ease;
+        }
+
+        .pillar:hover {
+            transform:
+                perspective(1000px)
+                rotateX(3deg)
+                rotateY(-4deg)
+                translateY(-10px);
+
+            border-top-color: var(--light-gold);
+
+            box-shadow:
+                0 25px 60px rgba(0,0,0,0.30);
+        }
+
+        .pillar-number {
+            color: rgba(228, 196, 106, 0.55);
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 1.1rem;
+
+            margin-bottom: 25px;
+        }
+
+        .pillar h3 {
+            color: var(--light-gold);
+
+            font-size: 2.2rem;
+
+            font-weight: 500;
+
+            margin-bottom: 18px;
+        }
+
+        .pillar p {
+            color: rgba(245, 235, 221, 0.67);
+
+            margin: 0;
+        }
+
+
+        /* =====================================================
+           ARCHITECTURAL STORY
+        ===================================================== */
+
+        .architecture-section {
+            background: var(--ivory);
+        }
+
+        .architecture-number {
+            color: var(--gold);
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 5rem;
+
+            line-height: 1;
+
+            opacity: 0.5;
+        }
+
+        .architecture-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+            font-weight: 500;
+
+            line-height: 1;
+        }
+
+
+        /* =====================================================
+           HISTORICAL IMPORTANCE
+        ===================================================== */
+
+        .history-strip {
+            background: var(--deep-teal);
+
+            color: var(--ivory);
+        }
+
+        .history-strip .section-title {
+            color: var(--ivory);
+        }
+
+        .history-strip p {
+            color: rgba(245, 235, 221, 0.72);
+        }
+
+        .history-item {
+            position: relative;
+
+            padding: 25px 0 25px 30px;
+
+            border-left: 1px solid rgba(228, 196, 106, 0.5);
+        }
+
+        .history-item::before {
+            content: "";
+
+            position: absolute;
+
+            left: -5px;
+            top: 32px;
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: var(--light-gold);
+        }
+
+        .history-item h3 {
+            color: var(--light-gold);
+
+            font-size: 1.8rem;
+
+            margin-bottom: 8px;
+        }
+
+        .history-item p {
+            margin: 0;
+
+            font-size: 0.95rem;
+        }
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .visit-section {
+            position: relative;
+
+            padding: 110px 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(200, 155, 60, 0.14),
+                    transparent 50%
+                ),
+                var(--midnight);
+
+            text-align: center;
+        }
+
+        .visit-section h2 {
+            color: var(--ivory);
+
+            font-size: clamp(3rem, 6vw, 5rem);
+
+            line-height: 1;
+        }
+
+        .visit-section p {
+            color: rgba(245, 235, 221, 0.68);
+
+            max-width: 550px;
+
+            margin: 20px auto 35px;
+        }
+
+        .visit-button {
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            color: var(--ivory);
+
+            border: 1px solid var(--gold);
+
+            font-size: 0.72rem;
+            font-weight: 500;
+
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+
+            transition:
+                background 0.4s ease,
+                color 0.4s ease,
+                transform 0.4s ease;
+        }
+
+        .visit-button:hover {
+            background: var(--gold);
+
+            color: var(--midnight);
+
+            transform: translateY(-4px);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .heritage-footer {
+            padding: 35px 0;
+
+            background: #03080D;
+
+            border-top: 1px solid rgba(200,155,60,0.20);
+        }
+
+        .footer-brand {
+            color: var(--ivory);
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 1.5rem;
+
+            letter-spacing: 0.08em;
+        }
+
+        .footer-text {
+            color: rgba(245,235,221,0.45);
+
+            font-size: 0.75rem;
+
+            margin: 5px 0 0;
+        }
+
+
+        /* =====================================================
+           ANIMATION
+        ===================================================== */
+
+        @keyframes reveal {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 991px) {
+
+            .heritage-nav {
+                padding: 18px 0;
+            }
+
+            .nav-brand {
+                font-size: 1.15rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-hero {
+                min-height: 75vh;
+
+                background-attachment: scroll;
+            }
+
+            .hero-title {
+                font-size: clamp(3.6rem, 13vw, 6rem);
+            }
+
+            .heritage-image {
+                margin-bottom: 40px;
+            }
+
+            .heritage-image img {
+                height: 420px;
+            }
+
+        }
+
+
+        @media (max-width: 576px) {
+
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 3.2rem;
+            }
+
+            .heritage-section {
+                padding: 85px 0;
+            }
+
+            .heritage-image img {
+                height: 330px;
+            }
+
+            .pillar {
+                padding: 35px 28px;
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
+
+    {% include "index.html" %}
+
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <section class="about-hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    A Living Heritage · Madurai
+                </div>
+
+                <h1 class="hero-title">
+                    About
+                    <span>the Temple</span>
+                </h1>
+
+                <p class="hero-text">
+                    Discover a sacred architectural landscape where
+                    devotion, craftsmanship and Tamil cultural traditions
+                    have remained connected across generations.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         INTRODUCTION
+    ===================================================== -->
+
+    <section class="heritage-section">
+
+        <div class="container">
+
+            <div class="row align-items-center g-5">
+
+                <div class="col-lg-6">
+
+                    <div class="heritage-image">
+
+                        <img
+                            src="{% static 'images/meenalogo.jpg' %}"
+                            alt="Meenakshi Amman Temple"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-6">
+
+                    <div class="section-eyebrow">
+                        The Sacred Centre
+                    </div>
+
+                    <h2 class="section-title">
+                        A Temple
+                        <br>
+                        Like No Other
+                    </h2>
+
+                    <div class="gold-line"></div>
+
+                    <p class="section-text">
+                        Located in the historic city of Madurai,
+                        the Meenakshi Amman Temple is dedicated to
+                        Goddess Meenakshi and Lord Sundareswarar.
+                    </p>
+
+                    <p class="section-text mt-3">
+                        The temple complex is renowned for its
+                        Dravidian architectural character, monumental
+                        gopurams, sculptural richness and sacred spaces.
+                        It continues to function not simply as a historic
+                        monument, but as a living place of worship.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         THREE PILLARS
+    ===================================================== -->
+
+    <section class="heritage-section pillars">
+
+        <div class="container">
+
+            <div class="pillar-intro">
+
+                <div class="section-eyebrow">
+                    Three Expressions
+                </div>
+
+                <h2 class="section-title">
+                    What Makes It Remarkable
+                </h2>
+
+                <p>
+                    Architecture, tradition and devotion come together
+                    to create the identity of the temple.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="pillar">
+
+                        <div class="pillar-number">
+                            01
+                        </div>
+
+
+                        <h3>
+                            Architecture
+                        </h3>
+
+                        <p>
+                            Monumental gopurams, detailed sculptures,
+                            mandapams and carefully composed sacred spaces
+                            demonstrate the richness of South Indian
+                            temple architecture.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="pillar">
+                                                <img src="{% static 'images/mee2.jpg' %}" class="card-image">
+
+                        <div class="pillar-number">
+                            02
+                            

@@ -1,0 +1,120 @@
+/* Reset default margin */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar container */
+.navbar {
+    background-color: #1e1e2f;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Navbar links */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    transition: 0.3s ease;
+    border-radius: 5px;
+}
+
+/* Hover effect */
+.navbar a:hover {
+    background-color: #ff4c60;
+    color: #fff;
+}
+
+/* Active link (optional) */
+.navbar a.active {
+    background-color: #ff4c60;
+}
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-right: 200px;
+}
+
+.meena{
+    height: 40%;
+    width: 20%;
+    padding: 20px;
+    margin-left: auto;
+}
+.meena1{
+    height: 70%;
+    width: 30%;
+    padding: 40px;
+    margin-left: auto;
+
+}
+
+
+/* Hero Section */
+.hero {
+    background: url("../images/temple.jpg") no-repeat center center/cover;
+    height: 400px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.hero h1 {
+    font-size: 40px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+/* About Section */
+.about {
+    padding: 40px;
+    text-align: center;
+}
+.p{
+    padding: 40px;
+    text-align: center;
+}
+
+
+
+.hero {
+    position: relative;
+    height: 400px;
+    text-align: center;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+
+
+
+/* Footer */
+.footer {
+    background-color: #800000;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}

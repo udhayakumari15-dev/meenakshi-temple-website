@@ -1,0 +1,37 @@
+{% load static %}
+
+<nav class="heritage-nav">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+
+            <a href="{% url 'home' %}" class="nav-brand">
+                Meenakshi Amman
+            </a>
+
+            <div class="nav-links">
+
+                <a href="{% url 'home' %}" class="nav-label">
+                    Home
+                </a>
+
+                <a href="{% url 'about' %}" class="nav-label">
+                    About
+                </a>
+
+                <a href="{% url 'history' %}" class="nav-label">
+                    History
+                </a>
+
+                <a href="{% url 'contact' %}" class="nav-label">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
